@@ -1,8 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
-import Product from '../Home/Product/Product';
+import { Container, Typography } from '@mui/material';
+import Product from '../Product/Product'
 
 const products = [
     {
@@ -210,7 +210,7 @@ const products = [
             weight: '50g'
         },
         img: 'https://i.ibb.co/BL6ssjs/h9r-228x228.jpg',
-        price: 280.29
+        price: 160.29
     },
     {
         id: 10,
@@ -235,15 +235,15 @@ const products = [
         img: 'https://i.ibb.co/PzqmY2w/MI-Dashcam-250x250.jpg',
         price: 61
     },
-
-
-
 ]
 
 const Products = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container>
+                <Typography variant="h5" component="div" sx={{ fontWeight: 600, mt: 10, mb: 5, color: '#8C6897' }}>
+                    CHOOSE THE BEST PRODUCTS
+                </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 12 }}>
                     {
                         products.map(product => <Product
