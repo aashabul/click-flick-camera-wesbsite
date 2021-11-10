@@ -11,7 +11,7 @@ const HomeBanner = () => {
     return (
         <Box style={homeBannerBg} sx={{ flexGrow: 1 }}>
             <Grid container spacing={1} >
-                <Grid item xs={12} md={6} sx={{ display: 'flex', textAlign: 'left', alignItems: 'center', my: 8 }}>
+                <Grid item xs={12} md={6} sx={{ display: 'flex', textAlign: 'left', alignItems: 'center', my: 10 }}>
                     <Box style={{ paddingLeft: '2%' }}>
                         <Typography variant='h4'>
                             Be a HERO

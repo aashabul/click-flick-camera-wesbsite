@@ -8,7 +8,7 @@ const Subscribe = () => {
             <Grid container spacing={1} sx={{ display: 'flex', alignItems: 'center', margin: '0 auto' }}>
                 <Grid item xs={12} md={6} sx={{ display: 'flex', textAlign: 'left', alignItems: 'center' }}>
                     <Box style={{ marginLeft: '10%' }}>
-                        <Typography variant='h3'>
+                        <Typography variant='h3' sx={{ color: '#8C6897' }}>
                             Subscribe to GoPro
                         </Typography>
                         <Typography variant='h4' style={{ fontSize: 20 }} sx={{ my: 3 }}>
