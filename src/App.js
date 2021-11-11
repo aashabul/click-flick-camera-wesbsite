@@ -11,7 +11,7 @@ import Purchase from './Pages/Purchase/Purchase';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ overflowX: 'hidden' }}>
       <AuthProvider>
         <Router>
           <Switch>

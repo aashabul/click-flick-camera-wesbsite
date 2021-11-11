@@ -114,9 +114,12 @@ const Navigation = () => {
                     aria-haspopup="true"
                     color="inherit"
                 >
-                    <AccountCircle />
+                    {
+                        user?.email ?
+                            <img style={{ borderRadius: '50%', width: '30px' }} src={user?.photoURL} alt="user" /> : <></>
+                    }
                 </IconButton>
-                <p>Profile</p>
+                <p>{user?.displayName}</p>
             </MenuItem>
         </Menu>
     );

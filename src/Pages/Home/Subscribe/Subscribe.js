@@ -29,8 +29,8 @@ const Subscribe = () => {
                         <Button style={{ backgroundColor: '#8C6897', color: 'white' }} variant="contained" size="large">Subscribe Now</Button>
                     </Box>
                 </Grid>
-                <Grid item xs={10} md={6}>
-                    <img style={{ width: '85%', marginTop: '50px' }} src={'https://i.ibb.co/bsmyR96/pdp-subscription-h10-image-5-1024-2x.png'} alt="gopro" />
+                <Grid item xs={10} md={5}>
+                    <img style={{ width: '80%', marginTop: '50px' }} src={'https://i.ibb.co/bsmyR96/pdp-subscription-h10-image-5-1024-2x.png'} alt="gopro" />
                 </Grid>
             </Grid>
         </Box >

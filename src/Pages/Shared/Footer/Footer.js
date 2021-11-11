@@ -38,7 +38,7 @@ const Footer = () => {
 
             </Grid>
 
-            <Grid sx={{ marginBottom: 5 }}>
+            <Grid item xs={10} sx={{ marginBottom: 5 }}>
                 &copy; Khondoker Aashabul Imam All Rights Reserves.
             </Grid>
         </Box>
