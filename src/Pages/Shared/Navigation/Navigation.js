@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -77,10 +78,20 @@ const Navigation = () => {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                {/* burger menu items */}
+                <Link to='/home' style={{ textDecoration: 'none' }}>
+                    <Button sx={{ color: 'black' }}>Home</Button>
+                </Link>
             </MenuItem>
             <MenuItem>
-                {/* burger menu items */}
+                <Link to='/explore' style={{ textDecoration: 'none' }}>
+                    <Button sx={{ color: 'black' }}>Explore</Button>
+                </Link>
+            </MenuItem>
+            <MenuItem>
+
+                <Link to='/login' style={{ textDecoration: 'none' }}>
+                    <Button sx={{ color: 'black' }}>Login</Button>
+                </Link>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
@@ -119,20 +130,33 @@ const Navigation = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
-                        <Button sx={{ color: 'white' }}>Login</Button>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <Box>
+                            <Link to='/home' style={{ textDecoration: 'none' }}>
+                                <Button sx={{ color: 'white' }}>Home</Button>
+                            </Link>
+                            <Link to='/explore' style={{ textDecoration: 'none' }}>
+                                <Button sx={{ color: 'white' }}>Explore</Button>
+                            </Link>
+                            <Link to='/login' style={{ textDecoration: 'none' }}>
+                                <Button sx={{ color: 'white' }}>Login</Button>
+                            </Link>
+
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </Box>
+
+
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton

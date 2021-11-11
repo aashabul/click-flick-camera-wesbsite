@@ -1,10 +1,12 @@
+import { Container, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Container, Typography } from '@mui/material';
-import Product from '../Product/Product'
+import Product from '../Home/Product/Product';
+import Footer from '../Shared/Footer/Footer';
+import Navigation from '../Shared/Navigation/Navigation';
 
-const products = [
+
+const allProducts = [
     {
         id: 1,
         name: 'EKEN H6S PLUS 4K WATERPROOF DUAL SCREEN ACTION CAMERA',
@@ -237,9 +239,11 @@ const products = [
     },
 ]
 
-const Products = () => {
+const Explore = (props) => {
     return (
+
         <Box sx={{ flexGrow: 1 }}>
+            <Navigation></Navigation>
             <Container>
                 <Typography variant="h5" component="div" sx={{ fontWeight: 600, mt: 8, mb: 5, color: '#8C6897' }}>
                     Choose The Best Products
@@ -247,7 +251,7 @@ const Products = () => {
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 12 }}>
                     {
 
-                        products.slice(0, 6).map(product => <Product
+                        allProducts.map(product => <Product
                             key={product.id}
                             product={product}
                         ></Product>)
@@ -256,8 +260,9 @@ const Products = () => {
 
                 </Grid>
             </Container>
+            <Footer></Footer>
         </Box>
     );
 };
 
-export default Products;
+export default Explore;
