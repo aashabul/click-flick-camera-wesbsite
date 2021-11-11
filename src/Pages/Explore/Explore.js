@@ -241,7 +241,6 @@ const allProducts = [
 
 const Explore = (props) => {
     return (
-
         <Box sx={{ flexGrow: 1 }}>
             <Navigation></Navigation>
             <Container>
@@ -257,7 +256,6 @@ const Explore = (props) => {
                         ></Product>)
 
                     }
-
                 </Grid>
             </Container>
             <Footer></Footer>
