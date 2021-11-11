@@ -1,92 +1,116 @@
+import { Button, Container, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import { NavLink, useHistory } from 'react-router-dom';
+import UseAuth from '../../../Hooks/useAuth';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import MuiAlert from '@mui/material/Alert';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
 
+
+
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+    const history = useHistory();
+    const { user, registerUser, loading, authError } = UseAuth();
+    // const [open, setOpen] = React.useState(false);
 
-    const handleLoginSubmit = e => {
-        if (loginData.password1 !== loginData.password2) {
-            alert('password did not match');
-        }
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
 
-        e.preventDefault();
-    }
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        // console.log(field, value);
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
+        // console.log(field, value);
         // console.log(newLoginData);
+    }
+    const handleLoginSubmit = e => {
+        if (loginData.password !== loginData.password2) {
+            alert('password did not match');
+            return;
+        }
+        registerUser(loginData.email, loginData.password, loginData.name, history);
+        e.preventDefault();
     }
     return (
         <>
             <Navigation></Navigation>
-            <Container >
+            <Container>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6} sx={{ marginTop: 10 }}>
+                    <Grid sx={{ mt: 10 }} item xs={12} md={6}>
                         <Typography variant="h6" gutterBottom component="div" >
-                            Please Register
+                            Register
                         </Typography>
-                        <form onSubmit={handleLoginSubmit}>
-                            <TextField
-                                sx={{ width: '75%', m: 1 }}
-                                name="name"
-                                onChange={handleOnChange}
-                                id="standard-basic3"
-                                label="Your Name"
-                                variant="standard" />
-                            <TextField
-                                sx={{ width: '75%', m: 1 }}
-                                name="email"
-                                onChange={handleOnChange}
-                                type="email"
-                                id="standard-basic"
-                                label="Your Email"
-                                variant="standard" />
-                            <TextField
-                                sx={{ width: '75%', m: 1 }}
-                                name="password1"
-                                onChange={handleOnChange}
-                                id="standard-basic2"
-                                label="Your Password"
-                                type="password"
-                                variant="standard" />
-                            <TextField
-                                sx={{ width: '75%', m: 1 }}
-                                name="password2"
-                                onChange={handleOnChange}
-                                id="standard-basic1"
-                                label="Confirm Password"
-                                type="password"
-                                variant="standard" />
-                            <NavLink to='/login' style={{ textDecoration: 'none' }}>
-                                <Button>
-                                    Already Registered? Login
+                        {
+                            !loading &&
+                            <form onSubmit={handleLoginSubmit}>
+                                <TextField sx={{ width: '75%', m: 1 }}
+                                    onBlur={handleOnBlur}
+                                    name="name"
+                                    id="standard-basic1" label="Your Name" variant="standard" />
+                                <TextField sx={{ width: '75%', m: 1 }}
+                                    onBlur={handleOnBlur}
+                                    name="email"
+                                    id="standard-basic" label="Your Email" variant="standard" />
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    onBlur={handleOnBlur}
+                                    name="password"
+                                    id="standard-password-input"
+                                    label="Password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    variant="standard"
+                                />
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    onBlur={handleOnBlur}
+                                    name="password2"
+                                    id="standard-password2-input"
+                                    label="Confirm Password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    variant="standard"
+                                />
+                                <NavLink
+                                    style={{ textDecoration: 'none' }}
+                                    to="/login">
+                                    <Button variant="text" >
+                                        Already Registered? Login
+                                    </Button>
+                                </NavLink>
+                                <br />
+                                <Button
+                                    type="submit"
+                                    sx={{ width: '25%', m: 1, backgroundColor: '#8C6897' }}
+                                    variant="contained">Register
                                 </Button>
-                            </NavLink>
-                            <br />
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                sx={{ width: '30%', m: 1, backgroundColor: '#8C6897' }}>
-                                Register
-                            </Button>
-                            <br />
-                            <NavLink to='/home' style={{ textDecoration: 'none' }}>
-                                <Button>
-                                    back to home
-                                </Button>
-                            </NavLink>
-                        </form>
+                            </form>
+                        }
+                        {
+                            loading && <Box sx={{ display: 'flex' }}>
+                                <CircularProgress />
+                            </Box>
+                        }
+                        {
+                            user?.email &&
+                            <Alert severity="success" sx={{ width: '75%' }}>
+                                Registered Successfully!
+                            </Alert>
+                        }
+                        {authError && <Alert severity="error" sx={{ width: '75%' }}>
+                            {authError}
+                        </Alert>}
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img style={{ width: '100%' }} src={"https://i.ibb.co/d4DdFYq/A-picture-of-action-camera-cartoon-character-with-board-Vector-illustration.jpg"} alt="" />
+                        <img style={{ width: '100%' }} src={'https://i.ibb.co/d4DdFYq/A-picture-of-action-camera-cartoon-character-with-board-Vector-illustration.jpg'} alt="poster" />
                     </Grid>
                 </Grid>
             </Container>

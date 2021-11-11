@@ -4,7 +4,8 @@ import Grid from '@mui/material/Grid';
 import { Button, Typography } from '@mui/material';
 
 const homeBannerBg = {
-    background: `url(https://i.ibb.co/Jy3RJy0/CLICK-FLICK-1.png)`
+    background: `url(https://i.ibb.co/Jy3RJy0/CLICK-FLICK-1.png)`,
+    width: '100%'
 }
 
 const HomeBanner = () => {
