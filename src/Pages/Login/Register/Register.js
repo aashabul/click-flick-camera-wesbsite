@@ -89,7 +89,7 @@ const Register = () => {
                                 <br />
                                 <Button
                                     type="submit"
-                                    sx={{ width: '25%', m: 1, backgroundColor: '#8C6897' }}
+                                    sx={{ width: '30%', m: 1, backgroundColor: '#8C6897' }}
                                     variant="contained">Register
                                 </Button>
                             </form>

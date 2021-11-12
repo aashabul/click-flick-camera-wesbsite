@@ -83,7 +83,7 @@ const Login = () => {
                         <Button
                             onClick={handleGoogleSignIn}
                             type="submit"
-                            sx={{ width: '50%', m: 1, backgroundColor: '#8C6897', color: 'white' }}
+                            sx={{ width: '40%', m: 1, backgroundColor: '#8C6897', color: 'white' }}
                             variant="contained">
                             Google Sign in
                         </Button>
