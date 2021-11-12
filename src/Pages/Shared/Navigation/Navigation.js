@@ -93,6 +93,14 @@ const Navigation = () => {
                     <Button sx={{ color: 'black' }}>Explore</Button>
                 </Link>
             </MenuItem>
+            {
+                user?.email &&
+                <MenuItem>
+                    <Link to='/dashboard' style={{ textDecoration: 'none' }}>
+                        <Button sx={{ color: 'black' }}>Dashboard</Button>
+                    </Link>
+                </MenuItem>
+            }
             <MenuItem>
                 {
                     user?.email ?
@@ -155,6 +163,12 @@ const Navigation = () => {
                             <NavLink to='/explore' style={{ textDecoration: 'none' }}>
                                 <Button sx={{ color: 'white' }}>Explore</Button>
                             </NavLink>
+                            {
+                                user?.email &&
+                                <NavLink to='/dashboard' style={{ textDecoration: 'none' }}>
+                                    <Button sx={{ color: 'white' }}>Dashboard</Button>
+                                </NavLink>
+                            }
 
                             {
                                 user?.email ?
@@ -166,7 +180,7 @@ const Navigation = () => {
                                             src={user?.photoURL}
                                             sx={{ width: 28, height: 28, marginLeft: 1 }}
                                         />
-                                        <Typography sx={{ color: 'white', mx: 1 }}>{user.displayName}</Typography>
+                                        <Typography sx={{ color: 'white', mx: 1, fontSize: '13px ' }}>{user.displayName}</Typography>
                                     </NavLink>
 
                                     :
