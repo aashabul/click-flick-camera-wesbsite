@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound'
+import Payment from './Pages/Payment/Payment';
 import Purchase from './Pages/Purchase/Purchase';
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/purchase">
               <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path="/payment">
+              <Payment></Payment>
             </PrivateRoute>
             {/* private route */}
 
