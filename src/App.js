@@ -39,13 +39,13 @@ function App() {
             <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
             </PrivateRoute>
-            <PrivateRoute path="/purchase">
+            <PrivateRoute path="/purchase/:id">
               <Purchase></Purchase>
             </PrivateRoute>
             <PrivateRoute path="/payment">
               <Payment></Payment>
             </PrivateRoute>
-            {/* private route */}
+
 
             <Route path="*">
               <NotFound></NotFound>
