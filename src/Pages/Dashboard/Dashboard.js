@@ -30,15 +30,15 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <List>
-                <Link to="/payment"><Button color="inherit">pay</Button></Link>
+                <Link to="/payment" style={{ textDecoration: 'none' }} ><Button color="inherit">pay</Button></Link>
+
+            </List>
+            <List >
+                <Link to="/myorders" style={{ textDecoration: 'none' }} ><Button color="inherit">My Orders</Button></Link>
 
             </List>
             <List>
-                <Link to={`#`}><Button color="inherit">My Orders</Button></Link>
-
-            </List>
-            <List>
-                <Link to={`#`}><Button color="inherit">Review</Button></Link>
+                <Link to="/review" style={{ textDecoration: 'none' }} ><Button color="inherit">Review</Button></Link>
 
             </List>
 
