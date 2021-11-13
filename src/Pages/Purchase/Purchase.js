@@ -40,8 +40,8 @@ const Purchase = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-        // console.log(field, value);
-        // console.log(newLoginData);
+        console.log(field, value);
+        console.log(newLoginData);
     }
 
     return (
@@ -49,6 +49,9 @@ const Purchase = () => {
             <Navigation></Navigation>
             <Grid container>
                 <Grid item xs={12} sm={12} md={4} sx={{ my: 5 }}>
+                    <Typography variant="subtitle2" gutterBottom component="div" >
+                        Your Selected Product
+                    </Typography>
                     <Card sx={{ minWidth: 200, boxShadow: 3 }}>
                         <CardMedia
                             component="img"
@@ -66,6 +69,7 @@ const Purchase = () => {
                             <Typography variant="body2" color="text.secondary">
                                 product ID: {id}
                             </Typography>
+
                             {/* <Typography variant="body2" color="text.secondary">
                             {itemDetails.description.color}
                         </Typography> */}
@@ -78,42 +82,78 @@ const Purchase = () => {
                     </Typography>
 
                     <form onSubmit={handleOrderSubmit}>
-                        <TextField sx={{ width: '75%', m: 1 }}
-                            onBlur={handleOnBlur}
-                            name="name"
-                            id="standard-basic1"
+                        <Typography variant="overline" gutterBottom component="div">
+                            Product Information
+                        </Typography>
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            label="Product Name"
+                            value={`${itemDetails.name}`}
+                            id="outlined-size-small1"
+                            size="small"
+                            disabled
+                        />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            label="Product Price"
+                            value={`${itemDetails.price}$`}
+                            id="outlined-size-small21"
+                            size="small"
+                            disabled
+                        />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            label="Product ID"
+                            value={id}
+                            id="outlined-size-small22"
+                            size="small"
+                            disabled
+                        />
+
+                        <Typography variant="overline" gutterBottom component="div" >
+                            Your Information (provide phone,address)
+                        </Typography>
+
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            label="Your Name"
+                            id="outlined-size-small"
                             value={user.displayName}
+                            size="small"
                             disabled
-                            variant="standard" />
-                        <TextField sx={{ width: '75%', m: 1 }}
-                            onBlur={handleOnBlur}
-                            name="email"
-                            id="standard-basic"
+                        />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            label="Your Email"
+                            id="outlined-size-small"
                             value={user.email}
+                            size="small"
                             disabled
-                            variant="standard" />
+                        />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             onBlur={handleOnBlur}
                             name="phone"
-                            id="phone"
+                            id="outlined-size-small26"
+                            size="small"
                             label="Your Phone Number"
                             type="text"
-                            variant="standard"
                         />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            onBlur={handleOnBlur}
-                            name="address"
                             id="address"
+                            name="address"
                             label="Your Address"
                             type="text"
-                            variant="standard"
+                            multiline
+                            maxRows={4}
+                            onBlur={handleOnBlur}
                         />
                         <Button
                             type="submit"
                             sx={{ width: '30%', m: 1, backgroundColor: '#8C6897' }}
-                            variant="contained">Place Order
+                            variant="contained">
+                            Place Order
                         </Button>
                     </form>
                 </Grid>
