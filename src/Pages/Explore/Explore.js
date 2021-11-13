@@ -20,13 +20,13 @@ const Explore = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Navigation></Navigation>
-            <Container>
+            <Container sx={{ my: 5 }}>
                 {
                     loading &&
                     <CircularProgress />
                 }
-                <Typography variant="h5" component="div" sx={{ fontWeight: 600, mt: 8, mb: 5, color: '#8C6897' }}>
-                    Choose The Best Products
+                <Typography variant="h5" component="div" sx={{ fontWeight: 600, mb: 5, color: '#8C6897' }}>
+                    Explore All The Products
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 12 }}>
                     {

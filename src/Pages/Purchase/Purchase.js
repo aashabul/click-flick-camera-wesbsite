@@ -48,7 +48,7 @@ const Purchase = () => {
         <>
             <Navigation></Navigation>
             <Grid container>
-                <Grid item xs={12} sm={12} md={4}>
+                <Grid item xs={12} sm={12} md={4} sx={{ my: 5 }}>
                     <Card sx={{ minWidth: 200, boxShadow: 3 }}>
                         <CardMedia
                             component="img"
@@ -72,38 +72,42 @@ const Purchase = () => {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} sm={12} md={8}>
+                <Grid item xs={12} sm={12} md={8} sx={{ my: 5 }}>
                     <Typography variant="h6" gutterBottom component="div" >
                         Place Order
                     </Typography>
 
                     <form onSubmit={handleOrderSubmit}>
                         <TextField sx={{ width: '75%', m: 1 }}
-                            // onBlur={handleOnBlur}
+                            onBlur={handleOnBlur}
                             name="name"
-                            id="standard-basic1" label={"Your Name"} variant="standard" />
+                            id="standard-basic1"
+                            value={user.displayName}
+                            disabled
+                            variant="standard" />
                         <TextField sx={{ width: '75%', m: 1 }}
-                            // onBlur={handleOnBlur}
+                            onBlur={handleOnBlur}
                             name="email"
-                            id="standard-basic" label="Your Email" variant="standard" />
+                            id="standard-basic"
+                            value={user.email}
+                            disabled
+                            variant="standard" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            // onBlur={handleOnBlur}
-                            name="password"
-                            id="standard-password-input"
-                            label="Password"
-                            type="password"
-                            autoComplete="current-password"
+                            onBlur={handleOnBlur}
+                            name="phone"
+                            id="phone"
+                            label="Your Phone Number"
+                            type="text"
                             variant="standard"
                         />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            // onBlur={handleOnBlur}
-                            name="password2"
-                            id="standard-password2-input"
-                            label="Confirm Password"
-                            type="password"
-                            autoComplete="current-password"
+                            onBlur={handleOnBlur}
+                            name="address"
+                            id="address"
+                            label="Your Address"
+                            type="text"
                             variant="standard"
                         />
                         <Button
