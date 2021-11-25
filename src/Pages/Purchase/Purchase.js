@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -56,58 +56,60 @@ const Purchase = () => {
     return (
         <>
             <Navigation></Navigation>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={4} sx={{ my: 5 }}>
-                    <Typography variant="subtitle2" gutterBottom component="div" sx={{ my: 4 }}>
-                        Your Selected Product
-                    </Typography>
-                    <Card sx={{ minWidth: 200, boxShadow: 3 }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={orderedProduct.img}
-                            style={{ width: 'auto', height: '190px', margin: '0 auto' }}
-                        />
-                        <CardContent>
-                            <Typography sx={{ color: '#8C6897', fontWeight: 700 }} variant="h7" component="div">
-                                {orderedProduct.name}
-                            </Typography>
-                            <Typography variant="h6" component="div">
-                                price: {orderedProduct.price}$
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                product ID: {id}
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} sm={12} md={8} sx={{ my: 5 }}>
-                    <Typography variant="h6" gutterBottom component="div" >
-                        Place Order
-                    </Typography>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-
-                        <Typography variant="overline" gutterBottom component="div" >
-                            Customer Information
+            <Container>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={4} sx={{ my: 5 }}>
+                        <Typography variant="subtitle2" gutterBottom component="div" sx={{ my: 4 }}>
+                            Your Selected Product
                         </Typography>
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} defaultValue={user.displayName} {...register("name")} />
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} defaultValue={user.email} {...register("email")} />
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='City' {...register("City", { required: true })} />
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='Address' {...register("Address", { required: true })} />
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='Phone' {...register("Phone", { required: true })} />
-                        <Typography variant="overline" gutterBottom component="div">
-                            Product Information
+                        <Card sx={{ minWidth: 200, boxShadow: 3 }}>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image={orderedProduct.img}
+                                style={{ width: 'auto', height: '190px', margin: '0 auto' }}
+                            />
+                            <CardContent>
+                                <Typography sx={{ color: '#8C6897', fontWeight: 700 }} variant="h7" component="div">
+                                    {orderedProduct.name}
+                                </Typography>
+                                <Typography variant="h6" component="div">
+                                    price: {orderedProduct.price}$
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    product ID: {id}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={8} sx={{ my: 5 }}>
+                        <Typography variant="h6" gutterBottom component="div" >
+                            Place Order
                         </Typography>
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={orderedProduct.name} {...register("productName")} />
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={orderedProduct.price} {...register("productPrice")} />
-                        <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={id} {...register("productId")} />
-                        {errors.exampleRequired && <span>This field is required</span>}
-                        <input style={{ width: '40%', margin: "5px", padding: "5px" }} type="submit" value="Place Order" />
-                    </form>
+                            <Typography variant="overline" gutterBottom component="div" >
+                                Customer Information
+                            </Typography>
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} defaultValue={user.displayName} {...register("name")} />
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} defaultValue={user.email} {...register("email")} />
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='City' {...register("City", { required: true })} />
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='Address' {...register("Address", { required: true })} />
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} placeholder='Phone' {...register("Phone", { required: true })} />
+                            <Typography variant="overline" gutterBottom component="div">
+                                Product Information
+                            </Typography>
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={orderedProduct.name} {...register("productName")} />
 
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={orderedProduct.price} {...register("productPrice")} />
+                            <input style={{ width: '90%', margin: "5px", padding: "5px" }} disabled defaultValue={id} {...register("productId")} />
+                            {errors.exampleRequired && <span>This field is required</span>}
+                            <input style={{ width: '40%', margin: "5px", padding: "5px" }} type="submit" value="Place Order" />
+                        </form>
+
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Container>
             <Footer></Footer>
         </>
     );

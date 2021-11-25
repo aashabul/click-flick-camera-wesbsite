@@ -6,7 +6,7 @@ const Subscribe = () => {
     return (
         <Box sx={{ flexGrow: 1, my: 10 }}>
             <Grid container spacing={1} sx={{ display: 'flex', alignItems: 'center', margin: '0 auto' }}>
-                <Grid item xs={12} md={6} sx={{ display: 'flex', textAlign: 'left', alignItems: 'center' }}>
+                <Grid item xs={10} sm={12} md={6} sx={{ display: 'flex', textAlign: 'left', alignItems: 'center' }}>
                     <Box style={{ marginLeft: '10%' }}>
                         <Typography variant='h3' sx={{ color: '#8C6897' }}>
                             Subscribe to GoPro
@@ -29,7 +29,7 @@ const Subscribe = () => {
                         <Button style={{ backgroundColor: '#8C6897', color: 'white' }} variant="contained" size="large">Subscribe Now</Button>
                     </Box>
                 </Grid>
-                <Grid item xs={10} md={5}>
+                <Grid item xs={12} sm={12} md={6}>
                     <img style={{ width: '80%', marginTop: '50px' }} src={'https://i.ibb.co/bsmyR96/pdp-subscription-h10-image-5-1024-2x.png'} alt="gopro" />
                 </Grid>
             </Grid>
